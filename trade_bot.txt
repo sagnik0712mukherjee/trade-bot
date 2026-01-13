@@ -1,0 +1,66 @@
+Question: Which funds performed better depending on the yearly Profit and Loss of that fund.
+LLM tweaked Question: Which funds performed better depending on the yearly Profit and Loss of that fund.
+Answer: The funds that performed better in the year 2023, based on the yearly Profit and Loss, are Ytum (7,229,903.10), NPSMF1 (304,338.65), NPSMF2 (297,590.20), NPSMF3 (207,308.09), and CoYold 1 (21,051.59).
+
+==================================
+
+Question: Total number of holdings for Garfield fund.
+LLM tweaked Question: What is the total number of holdings for the Garfield fund?
+Answer: The total number of holdings for the Garfield fund is 150.
+
+==================================
+
+Question: Total number of trades for that fund.
+LLM tweaked Question: What is the total number of trades for the Garfield fund?
+Answer: Sorry can not find the answer
+
+==================================
+
+Question: What is the weather in London?
+LLM tweaked Question: What is the current weather in London?
+Answer: Sorry can not find the answer
+
+==================================
+
+Question: Which fund had the highest profit and loss in 2023?
+LLM tweaked Question: Which fund had the highest profit and loss in the year 2023?
+Answer: The fund that had the highest profit and loss in 2023 is NPSMF1 with a total profit and loss of 304,338.65.
+
+==================================
+
+Question: How many unique securities are held by UNC Investment Fund?
+LLM tweaked Question: What is the number of unique securities held by the UNC Investment Fund?
+Answer: Sorry can not find the answer
+
+==================================
+
+Question: What is the total number of trades executed by NPSMF1?
+LLM tweaked Question: What is the total number of trades executed by the fund NPSMF1?
+Answer: The total number of trades executed by NPSMF1 is 0.
+
+==================================
+
+Question: List all trade types available for NPSMF2.
+LLM tweaked Question: What are all the available trade types for the fund NPSMF2?
+Answer: Sorry can not find the answer
+
+==================================
+
+Question: What is the year-to-date profit and loss for security 273098 in the Garfield fund?
+LLM tweaked Question: What is the year-to-date profit and loss for security 273098 in the Garfield fund?
+Answer: Sorry can not find the answer
+
+==================================
+
+Question: Who won the FIFA World Cup in 2022?
+LLM tweaked Question: Who was the winner of the FIFA World Cup in 2022?
+Answer: Sorry can not find the answer
+
+==================================
+
+Question: Which fund had the lowest performance in 2023?
+LLM tweaked Question: Which fund had the lowest performance based on the yearly Profit and Loss in 2023?
+Answer: The fund that had the lowest performance in 2023 is CoYold 7 with a total profit and loss of -5,000,000,000.00.
+
+==================================
+
