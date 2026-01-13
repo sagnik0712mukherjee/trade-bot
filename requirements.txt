@@ -1,8 +1,9 @@
-streamlit
 pandas
 numpy
-faiss-cpu
-sentence-transformers
+langchain
+langchain-community
+langchain-openai
+chromadb
+tiktoken
 openai
-SpeechRecognition
-pyaudio
+jupyter

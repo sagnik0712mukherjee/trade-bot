@@ -1,93 +1,67 @@
-# Trade Bot 🤖📊  
-### Text + Voice based RAG Chatbot for Holdings & Trades Data
+# Trade Bot Analysis
+### RAG-Powered Notebook for Financial Holdings & Trades Data
 
-Trade Bot is a **closed-book Retrieval-Augmented Generation (RAG) chatbot** built using Streamlit.
-It answers questions **only** from the provided financial datasets (`holdings.csv` and `trades.csv`) and strictly refuses to answer when the information is not found.
+This repository contains a comprehensive **Retrieval-Augmented Generation (RAG)** implementation within a Jupyter Notebook to analyze financial datasets (`holdings.csv` and `trades.csv`).
 
-The system supports:
-- Text-based chat
-- Voice input (speech-to-text)
-- Voice output (text-to-speech) - IN_PROGRESS
-- Multi-chat conversations with memory (ChatGPT-style UI)
+The system is engineered to answer complex analytical questions about fund performance, holdings, and trades while strictly adhering to data-driven guardrails.
 
 ---
 
-## 🧠 Key Features
+## Core Architecture
 
-- **Closed-book RAG** (no internet, no hallucinations)
-- **Strict refusal logic**  
-  → Responds with:  
-  `Sorry can not find the answer`
-- **FAISS-based vector search**
-- **One-time indexing per session**
-- **Multi-chat support** (new chat, rename chat, switch chat)
-- **Conversation memory per chat**
-- **Optional voice input & read-aloud responses**
-- **Deterministic LLM responses** (no temperature)
+The bot uses a specialized RAG architecture designed for financial accuracy:
 
----
+### 1. Dual-Document Retrieval
+- **Raw Documents**: Granular records for specific lookups (e.g., "P&L for security X").
+- **Summary Documents**: Pre-computed aggregations (Total Holdings, Total Trades, Yearly P&L, Performance Rankings).
+- **Zero-Count Handling**: Explicit "0" summaries are created for funds with no activity to prevent retrieval "hallucinations."
 
-## ⚙️ How Indexing Works (Important)
+### 2. Conversational Intelligence
+- **Query Condensation**: Rephrases follow-up questions (e.g., "Total trades for **that fund**") into standalone queries (e.g., "Total trades for **Garfield fund**") using chat history before retrieval.
+- **Context Isolation**: Validates retrieved documents against the fund mentioned in the query using metadata filtering.
 
-- CSV files are loaded and converted into text documents
-- Documents are embedded using `sentence-transformers`
-- Embeddings are stored in a **local FAISS index**
-- Indexing runs **only once per Streamlit session**
-- Subsequent user queries reuse the same vector store
-
-This avoids re-embedding and ensures fast responses.
+### 3. Guardrail System
+- **Intent Routing**: Automatically routes queries to either summary or raw documents based on aggregation intent.
+- **Strict Refusal**: Returns exactly `Sorry can not find the answer` if the information is unavailable or out-of-scope.
+- **Deterministic Generation**: Uses GPT-4 with `temperature=0` to ensure consistency.
 
 ---
 
-## 🛡️ Hallucination Prevention
+## Data Preprocessing
 
-The chatbot **never answers blindly**.
-
-Safeguards / Guardrails:
-- Similarity score threshold before LLM is called
-- Context-only prompting
-- No external knowledge access
-- Deterministic LLM configuration
-
-If relevant context is not found:
-```bash
-Sorry can not find the answer
-```
+- **Schema Alignment**: Standardizes `PortfolioName` to `FundName` across datasets.
+- **Temporal Analysis**: Extracts `Year` from `AsOfDate` for year-over-year comparisons.
+- **Contextual Merging**: Joins holdings and trades on a composite key of `["SecurityId", "FundName"]`.
 
 ---
 
-## 🎙️ Voice Support
+## Getting Started
 
-- **Voice Input:**  
-  Uses microphone + speech recognition to convert speech to text
-
-- **Voice Output:**  
-  Uses offline text-to-speech to read answers aloud
-
-Both features can be toggled from the sidebar.
-
----
-
-## 🚀 Running the App
-
-### 1. Install dependencies
+### 1. Installation
+Install the required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Set OpenAI key
+### 2. Set API Key
+Ensure your OpenAI API key is set in your environment:
 ```bash
-export OPENAI_API_KEY=your_api_key_here
+export OPENAI_API_KEY='your-api-key-here'
 ```
 
-### 3. Run Streamlit app
+### 3. Running the Analysis
+Open and run the notebook:
 ```bash
-streamlit run app.py
+jupyter notebook trade_bot.ipynb
 ```
 
 ---
 
-## Author
+## Evaluation Suite
+The notebook includes an evaluation cell with 10+ varied test cases (Performance comparisons, Aggregations, Specific lookups, and Out-of-scope queries) to verify the bot's accuracy and safety metrics.
 
-Sagnik Mukherjee
-GitHub: [sagnikmukherjee](https://github.com/sagnik0712mukherjee)
+---
+
+## Author
+**Sagnik Mukherjee**  
+GitHub: [sagnik0712mukherjee](https://github.com/sagnik0712mukherjee)
