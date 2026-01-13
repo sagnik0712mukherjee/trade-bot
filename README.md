@@ -7,7 +7,7 @@ It answers questions **only** from the provided financial datasets (`holdings.cs
 The system supports:
 - Text-based chat
 - Voice input (speech-to-text)
-- Voice output (text-to-speech)
+- Voice output (text-to-speech) - IN_PROGRESS
 - Multi-chat conversations with memory (ChatGPT-style UI)
 
 ---
